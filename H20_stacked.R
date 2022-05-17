@@ -12,8 +12,14 @@ dim(test)
 names(train)
 
 # Identify predictors and response
+
+# -------------------------------------------------------
+# nome colonna target
 y <- "response"
+
+# nome colonne ffatures
 x <- setdiff(names(train), y)
+# -------------------------------------------------------
 
 # For binary classification, response should be a factor
 train[, y] <- as.factor(train[, y])
@@ -66,7 +72,7 @@ perf <- h2o.performance(ensemble, newdata = test)
 # Pred
 pred <- h2o.predict(ensemble, newdata = test)
 
-# ---------------
+# -------------------------------------------------------
 
 perf@metrics$RMSE
 
