@@ -17,7 +17,7 @@ names(train)
 # nome colonna target
 y <- "response"
 
-# nome colonne ffatures
+# nome colonne features
 x <- setdiff(names(train), y)
 # -------------------------------------------------------
 
