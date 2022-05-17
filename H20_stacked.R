@@ -63,12 +63,15 @@ ensemble <- h2o.stackedEnsemble(x = x,
 # Eval ensemble performance on a test set
 perf <- h2o.performance(ensemble, newdata = test)
 
+# Pred
+pred <- h2o.predict(ensemble, newdata = test)
+
 # ---------------
 
 perf@metrics$RMSE
 
 library(ftsa)
 
-rmsse(perf@metrics$predictions, train, test)
+rmsse(pred['predict'], train, test)
 
 
